@@ -1,17 +1,13 @@
 $ ->
 
-#  $("#slider").slidesjs({
-#    width: 960,
-#    height: 640,
-#    navigation: {
-#      active: false
-#    },
-#    pagination: {
-#      active: false
-#    }
-#  })
+  $('.get-price').bind 'click', ->
+    $('.modal-overlay').unbind 'click'
+    $('.modal-overlay').bind 'click', ->
+      hide_order_form()
 
-  $('#order-button').bind 'click', ->
+    show_order_form()
+
+  $('.order-button').bind 'click', ->
 
 
     name = $(@).parent().find('input[name=username]')
@@ -36,6 +32,7 @@ $ ->
       $('.modal-overlay').bind 'click', ->
         hide_thank_you()
 
+    hide_order_form()
     show_thank_you()
 
     false
@@ -44,6 +41,24 @@ $ ->
   $('#hide-thank-you').bind 'click', ->
     hide_thank_you()
     false
+
+
+window.show_order_form = ->
+  $('.modal-overlay').show()
+  $('.modal-overlay').animate({'opacity': '0.8'}, 300, ->
+    $('.modal-dialog').css('bottom', '-300px')
+    $('.modal-dialog').css('left', '50%')
+    $('.modal-dialog').show()
+    $('.modal-dialog').animate({'bottom': '50%'}, 500)
+  )
+
+window.hide_order_form = ->
+  $('.modal-dialog').animate({'left': '-2000px'}, 500, ->
+    $('.modal-dialog').hide()
+#    $('.modal-overlay').animate {'opacity': '0'}, 300, ->
+#      $('.modal-overlay').hide()
+  )
+
 
 window.show_thank_you = ->
 

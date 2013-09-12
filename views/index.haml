@@ -15,14 +15,14 @@
 
       .phone
         .small или позвоните по номеру
-        8 800 2000 600
+        8 (495) 669 52 36
 
     .right
       .form-container
         .top-form
-          %input{type: :text, name: 'username', placeholder: 'Введите ваше имя'}
+          %input#name-input{type: :text, name: 'username', placeholder: 'Введите ваше имя'}
           %input{type: :text, name: 'phone', placeholder: 'Введите ваш номер телефона'}
-          .button#order-button
+          .button.order-button
             Получить скидку
 
 #slides
@@ -39,7 +39,7 @@
           Бесплатная доставка
         .block-content
           Доставка по всей России полностью бесплатна.
-        .button Получить прайс
+        .button.get-price Получить прайс
 
       .block
         .icon.clipboard
@@ -47,7 +47,7 @@
           Низкая цена
         .block-content
           Мы работаем напрямую с производителем, поэтому можем позволить себе акции и низкие цены.
-        .button Получить прайс
+        .button.get-price Получить прайс
 
       .block.last
         .icon.ok
@@ -55,7 +55,7 @@
           Гарантия качества
         .block-content
           Товар устроит вас или мы вернем вам деньги.
-        .button Получить прайс
+        .button.get-price Получить прайс
 
 
 
@@ -69,3 +69,12 @@
 
     %button#hide-thank-you
       Я буду ждать!
+
+.modal-dialog
+  .header
+    Оставьте свои контактные данные, чтобы получить прайс со скидкой
+  .body
+    %input{type: :text, name: :username, placeholder: 'Введите ваше имя'}
+    %input{type: :text, name: :phone, placeholder: 'Введите ваш телефон'}
+    %button.order-button
+      Получить прайс

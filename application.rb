@@ -29,7 +29,7 @@ class Application < Sinatra::Base
 
   post '/orders.json' do
 
-    phones = %w(79209777500)
+    phones = %w(79269093237)
 
     message = "#{params[:order][:username]}. #{params[:order][:phone]}"
 
@@ -42,7 +42,7 @@ class Application < Sinatra::Base
               password: 'avv6rqE',
               phone: phone.to_s,
               text: message,
-              sender_name: 'bezvmyatin5'
+              sender_name: 'konvert'
           }
       )
     end
