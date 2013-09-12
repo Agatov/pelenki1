@@ -3,7 +3,7 @@ $ ->
   $('.get-price').bind 'click', ->
     $('.modal-overlay').unbind 'click'
     $('.modal-overlay').bind 'click', ->
-      hide_order_form()
+      hide_order_form_with_bg()
 
     show_order_form()
 
@@ -32,6 +32,9 @@ $ ->
       $('.modal-overlay').bind 'click', ->
         hide_thank_you()
 
+    name.val('')
+    phone.val('')
+
     hide_order_form()
     show_thank_you()
 
@@ -55,8 +58,13 @@ window.show_order_form = ->
 window.hide_order_form = ->
   $('.modal-dialog').animate({'left': '-2000px'}, 500, ->
     $('.modal-dialog').hide()
-#    $('.modal-overlay').animate {'opacity': '0'}, 300, ->
-#      $('.modal-overlay').hide()
+  )
+
+window.hide_order_form_with_bg = ->
+  $('.modal-dialog').animate({'left': '-2000px'}, 500, ->
+    $('.modal-dialog').hide()
+    $('.modal-overlay').animate {'opacity': '0'}, 300, ->
+      $('.modal-overlay').hide()
   )
 
 
@@ -68,9 +76,6 @@ window.show_thank_you = ->
     $('.modal-thank-you').css('top', '50%')
     $('.modal-thank-you').show()
     $('.modal-thank-you').animate({'right': '50%'}, 500)
-
-#    $('.modal-overlay').animate {'opacity': '0'}, 300, ->
-#      $('.modal-overlay').hide()
   )
 
 window.hide_thank_you = ->
