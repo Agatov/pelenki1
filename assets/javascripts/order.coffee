@@ -27,7 +27,7 @@ $ ->
     $('.modal-overlay').bind 'click', ->
       hide_thank_you()
 
-    $.post '/orders.json', {'order[username]': $('input[name=username]').val(), 'order[phone]': $('input[name=phone]').val()}, (data) =>
+    $.post '/orders.json', {'order[username]': name.val(), 'order[phone]': phone.val()}, (data) =>
       $('.modal-overlay').unbind 'click'
       $('.modal-overlay').bind 'click', ->
         hide_thank_you()
